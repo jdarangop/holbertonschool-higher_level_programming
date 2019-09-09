@@ -13,7 +13,8 @@ int check_cycle(listint_t *list)
 
 	while (advanced != NULL && advanced->next != NULL)
 	{
-		advanced = advanced->next;
+		retraced = retraced->next;
+		advanced = advanced->next->next;
 		
 		if (advanced == retraced)
 			return (1);
