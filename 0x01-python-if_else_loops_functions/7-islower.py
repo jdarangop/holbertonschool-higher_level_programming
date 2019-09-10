@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/pyth
 def islower(c):
     if (c.islower()):
         return True
