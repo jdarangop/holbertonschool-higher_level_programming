@@ -11,22 +11,25 @@ int is_palindrome(listint_t **head)
 	listint_t *current = *head, *inicio, *final;
 	int lenght = 0, count = 0, i = 0, j;
 
+	if (*head == NULL)
+		return (0);
+
 	while (current->next != NULL)
 	{
 		lenght++;
 		current = current->next;
 	}
-	count = lenght + 1;
+	count = lenght;
+	inicio = *head;
 	while (i != count / 2)
 	{
-		inicio = *head;
 		final = *head;
 
-		for (j = 0; j < i; j++)
-		{
-			inicio = inicio->next;
-		}
-		for (j = 0; j < count - (i + 1); j++)
+	/*	for (j = 0; j < i; j++)*/
+	/*	{*/
+	/*		inicio = inicio->next;*/
+	/*	}*/
+		for (j = 0; j < count - i; j++)
 		{
 			final = final->next;
 		}
@@ -36,6 +39,8 @@ int is_palindrome(listint_t **head)
 		}
 		else
 		{
+			inicio = inicio->next;
+			/*count--;*/
 			i++;
 		}
 	}
