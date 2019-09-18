@@ -1,5 +1,23 @@
 #include "lists.h"
 
+/**
+ * reverse - Reverse a linked list.
+ * @head_medium: Head of the linked list.
+ * Return: void.
+ */
+void reverse(listint_t **head_medium)
+{
+	listint_t *current = *head_medium, *next = NULL, *prev = NULL;
+
+	while (current != NULL)
+	{
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
+	}
+	*head_medium = prev;
+}
 
 /**
  * is_palindrome - Check if a linked list is a palindrome.
@@ -8,41 +26,25 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *current = *head, *inicio, *final;
-	int lenght = 0, count = 0, i = 0, j;
+	listint_t *fast, *slow, *medium, *current;
 
-	if (*head == NULL)
-		return (0);
-
-	while (current->next != NULL)
+	fast = *head;
+	slow = *head;
+	while (fast != NULL && fast->next != NULL)
 	{
-		lenght++;
-		current = current->next;
+		fast = fast->next->next;
+		slow = slow->next;
 	}
-	count = lenght;
-	inicio = *head;
-	while (i != count / 2)
+	medium = slow;
+	reverse(&medium);
+	current = *head;
+	while (medium != NULL)
 	{
-		final = *head;
-
-	/*	for (j = 0; j < i; j++)*/
-	/*	{*/
-	/*		inicio = inicio->next;*/
-	/*	}*/
-		for (j = 0; j < count - i; j++)
-		{
-			final = final->next;
-		}
-		if (inicio->n != final->n)
-		{
+		if (medium->n != current->n)
 			return (0);
-		}
-		else
-		{
-			inicio = inicio->next;
-			/*count--;*/
-			i++;
-		}
+
+		medium = medium->next;
+		current = current->next;
 	}
 	return (1);
 }
