@@ -14,6 +14,7 @@ def roman_to_int(roman_string):
                 elif roman_string[i + 1] == "X":
                     answer += 9
                 i += 2
+                continue
             else:
                 answer += 1
         elif roman_string[i] == "V":
