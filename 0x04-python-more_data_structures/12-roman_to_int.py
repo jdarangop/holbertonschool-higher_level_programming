@@ -9,22 +9,52 @@ def roman_to_int(roman_string):
             if i != len(roman_string) - 1:
                 if roman_string[i + 1] == "I":
                     answer += 2
+                    i += 2
+                    continue
                 elif roman_string[i + 1] == "V":
                     answer += 4
+                    i += 2
+                    continue
                 elif roman_string[i + 1] == "X":
                     answer += 9
-                i += 2
-                continue
+                    i += 2
+                    continue
+                else:
+                    answer += 1
             else:
                 answer += 1
         elif roman_string[i] == "V":
             answer += 5
         elif roman_string[i] == "X":
-            answer += 10
+            if i != len(roman_string) - 1:
+                if roman_string[i + 1] == "L":
+                    answer += 40
+                    i += 2
+                    continue
+                elif roman_string[i + 1] == "C":
+                    answer += 90
+                    i += 2
+                    continue
+                else:
+                    answer += 10
+            else:
+                answer += 10
         elif roman_string[i] == "L":
             answer += 50
         elif roman_string[i] == "C":
-            answer += 100
+            if i != len(roman_string) - 1:
+                if roman_string[i + 1] == "D":
+                    answer += 400
+                    i += 2
+                    continue
+                elif roman_string[i + 1] == "M":
+                    answer += 900
+                    i += 2
+                    continue
+                else:
+                    answer += 100
+            else:
+                answer += 100
         elif roman_string[i] == "D":
             answer += 500
         elif roman_string[i] == "M":
