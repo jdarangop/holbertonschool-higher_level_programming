@@ -29,7 +29,7 @@ void print_python_bytes(PyObject *p)
 		printf("  first %ld bytes: ", PyBytes_Size(p) + 1);
 	for (i = 0; i < (PyBytes_Size(p) + 1) && i < 10; i++)
 	{
-		if (i != PyBytes_Size(p))
+		if (i != PyBytes_Size(p) && i != 9)
 		{
 			if (str[i] == 0)
 				printf("00 ");
