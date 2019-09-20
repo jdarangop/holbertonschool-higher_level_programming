@@ -24,15 +24,25 @@ void print_python_bytes(PyObject *p)
 	printf("  trying string: %s\n", PyBytes_AsString(p));
 	str = PyBytes_AsString(p);
 	if (PyBytes_Size(p) > 10)
-		printf("  first 10 elements: ");
+		printf("  first 10 bytes: ");
 	else
-		printf("  first %ld elements: ", PyBytes_Size(p) + 1);
-	for (i = 0; i < PyBytes_Size(p) && i < 10; i++)
+		printf("  first %ld bytes: ", PyBytes_Size(p) + 1);
+	for (i = 0; i < (PyBytes_Size(p) + 1) && i < 10; i++)
 	{
-		if (i != PyBytes_Size(p) - 1)
-			printf("%hhx ", str[i]);
+		if (i != PyBytes_Size(p))
+		{
+			if (str[i] == 0)
+				printf("00 ");
+			else
+				printf("%hhx ", str[i]);
+		}
 		else
-			printf("%hhx", str[i]);
+		{
+			if (str[i] == 0)
+				printf("00");
+			else
+				printf("%hhx", str[i]);
+		}
 	}
 	putchar('\n');
 }
