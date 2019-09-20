@@ -39,12 +39,11 @@ void print_python_bytes(PyObject *p)
 		else
 		{
 			if (str[i] == 0)
-				printf("00");
+				printf("00\n");
 			else
-				printf("%hhx", str[i]);
+				printf("%hhx\n", str[i]);
 		}
 	}
-	putchar('\n');
 }
 
 /**
