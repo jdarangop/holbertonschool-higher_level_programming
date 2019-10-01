@@ -28,6 +28,7 @@ class Square:
 
         if x == 0:
             print()
+            return
 
         for k in range(pos[1]):
             print()
