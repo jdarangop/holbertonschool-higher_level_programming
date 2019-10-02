@@ -131,7 +131,6 @@ class Square:
         tmp = ""
 
         if x == 0:
-            print()
             return tmp
 
         for k in range(pos[1]):
@@ -141,5 +140,6 @@ class Square:
             tmp += ' ' * pos[0]
             for j in range(x):
                 tmp += '#'
-            tmp += '\n'
+            if i != (x - 1):
+                tmp += '\n'
         return tmp
