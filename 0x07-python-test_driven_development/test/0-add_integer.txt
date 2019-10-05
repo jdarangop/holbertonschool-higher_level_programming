@@ -1,6 +1,0 @@
->>> add_integer(2, )
-100
->>> add_integer(4, 8)
-100
->>> add_integer(2, )
-100
