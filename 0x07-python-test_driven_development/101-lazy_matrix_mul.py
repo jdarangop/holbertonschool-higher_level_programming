@@ -42,3 +42,7 @@ def lazy_matrix_mul(m_a, m_b):
         raise ValueError('m_a and m_b can\'t be multiplied')
 
     return numpy.matrix(m_a) * numpy.matrix(m_b)
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testfile("tests/101-lazy_matrix_mul.txt")
