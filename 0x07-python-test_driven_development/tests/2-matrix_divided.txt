@@ -52,3 +52,22 @@ Test 7:
     Traceback (most recent call last):
         ...
     TypeError: div must be a number
+
+Test 8:
+
+    >>> matrix_divided([[-33, 62, 1.0], [1.33, 1, 2.0]], float('inf'))
+    [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+Test 9:
+
+    >>> matrix_divided([[-33, 62, 1.0], [1.33, 1, 2.0]])
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+Test 10:
+
+    >>> matrix_divided()
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
