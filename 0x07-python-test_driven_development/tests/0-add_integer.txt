@@ -23,6 +23,11 @@ Test whatever:
     >>> add_integer(24, 846)
     870
 
+Test whatever:
+
+    >>> add_integer(24.897983479, 846.9827495)
+    870
+
 Tes passing a string as argument:
 
     >>> add_integer("Holberton", 5)
