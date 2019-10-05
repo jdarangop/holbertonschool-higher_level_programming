@@ -29,3 +29,31 @@ Tes passing a string as argument:
     Traceback (most recent call last):
         ...
     TypeError: a must be an integer
+
+Tes passing a string as argument:
+
+    >>> add_integer(35673, "Holberton")
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+Tes passing a string as argument:
+
+    >>> add_integer(None, 5)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+Tes passing a string as argument:
+
+    >>> add_integer(74, NaN)
+    Traceback (most recent call last):
+        ...
+    NameError: name 'NaN' is not defined
+
+Tes passing a string as argument:
+
+    >>> add_integer(float('inf'), 5)
+    Traceback (most recent call last):
+        ...
+    OverflowError: cannot convert float infinity to integer
