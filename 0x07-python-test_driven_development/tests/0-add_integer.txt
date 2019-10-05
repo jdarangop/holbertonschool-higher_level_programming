@@ -1,0 +1,31 @@
+The ``add_integer`` module
+======================
+
+Using ``add_integer``
+-------------------
+
+Import module:
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Test an add with only one argument:
+
+    >>> add_integer(2)
+    100
+
+Test a comun sum:
+
+    >>> add_integer(4, 8)
+    12
+
+Test whatever:
+
+    >>> add_integer(24, 846)
+    870
+
+Tes passing a string as argument:
+
+    >>> add_integer("Holberton", 5)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
