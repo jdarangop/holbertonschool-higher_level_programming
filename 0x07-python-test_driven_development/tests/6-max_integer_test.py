@@ -64,6 +64,10 @@ class TestMaxInteger(unittest.TestCase):
         with self.assertRaises(TypeError):
             max_integer([5, 5, 79, '89', 75])
 
+    def test_D(self):
+        """Test with numbers"""
+        self.assertEqual(max_integer([0, -15, 7, 94, 752, 645631]), 645631)
+
 
 if __name__ == '__main__':
     unittest.main()
