@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module 7-rectangle"""
+"""Module 8-rectangle"""
 
 
 class Rectangle:
@@ -10,14 +10,13 @@ class Rectangle:
     Return: Area: area, Perimeter: perimeter
     """
     number_of_instances = 0
-    print_symbol = '#'
 
     def __init__(self, width=0, height=0):
         """Init method"""
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
-        #self.print_symbol = "#"
+        self.print_symbol = "#"
 
     @property
     def width(self):
@@ -76,3 +75,20 @@ class Rectangle:
         """Delection method"""
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
+
+    def __ge__(self, other):
+        """Greather equal method"""
+        return self.area() >= other.area()
+
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        """Bigger or equal method"""
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError('rect_1 must be an instance of Rectangle')
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError('rect_2 must be an instance of Rectangle')
+
+        if rect_1 >= rect_2:
+            return rect_1
+        else:
+            return rect_2
