@@ -1,9 +1,5 @@
 #!/usr/bin/python3
-"""Module lazy_matrix_mul"""
-import numpy
-
-
-def lazy_matrix_mul(m_a, m_b):
+def matrix_mul(m_a, m_b):
     """matrix_mul
 
         Args: m_a, m_b
@@ -41,7 +37,13 @@ def lazy_matrix_mul(m_a, m_b):
     if len(m_a[0]) != len(m_b):
         raise ValueError('m_a and m_b can\'t be multiplied')
 
-    return numpy.matrix(m_a) * numpy.matrix(m_b)
+    matrix_result = [[0] * len(m_b[0]) for n in range(len(m_a))]
+    for i in range(len(m_a)):
+        for j in range(len(m_b[0])):
+            for w in range(len(m_a[0])):
+                matrix_result[i][j] += int(m_a[i][w] * m_b[w][j])
+
+    return matrix_result
 
 if __name__ == '__main__':
     import doctest
