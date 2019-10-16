@@ -6,6 +6,7 @@ class MyInt(int):
     """Class MyInt"""
 
     def __init__(self, value):
+        """Init method"""
         self.value = value
 
     def __eq__(self, other):

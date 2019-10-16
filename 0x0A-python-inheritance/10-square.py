@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-""" Module 9-base_geometry"""
+"""Module 10-base_geometry"""
 
 
 class BaseGeometry:
     """Class BaseGeometry"""
     def area(self):
+        """Area method"""
         raise Exception('area() is not implemented')
 
     def integer_validator(self, name, value):
@@ -13,6 +14,7 @@ class BaseGeometry:
             raise TypeError(name + ' must be an integer')
         if value <= 0:
             raise ValueError(name + ' must be greater than 0')
+
 
 class Rectangle(BaseGeometry):
     """Class BaseGeometry"""
@@ -32,6 +34,7 @@ class Rectangle(BaseGeometry):
         """Overcharge __str__"""
         string = "[Rectangle] " + str(self.__width) + "/" + str(self.__height)
         return string
+
 
 class Square(Rectangle):
     """Class Square"""

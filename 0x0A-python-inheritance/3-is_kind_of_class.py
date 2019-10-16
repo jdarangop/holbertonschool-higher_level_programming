@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module 2-is_same_class"""
+"""Module 3-is_same_class"""
 
 
 def is_kind_of_class(obj, a_class):
