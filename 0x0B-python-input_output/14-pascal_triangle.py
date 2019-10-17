@@ -4,9 +4,12 @@
 
 def pascal_triangle(n):
     """Pascal triangle"""
+
+    if n <= 0:
+        return []
     lista = [[1]]
     tmp = []
-    for i in range(n):
+    for i in range(n - 1):
         tmp = tmp.copy()
         tmp = []
         tmp.append(1)
