@@ -18,7 +18,7 @@ class Square(Rectangle):
     @property
     def size(self):
         """Width getter"""
-        return self.__size
+        return self.width
 
     @size.setter
     def size(self, value):
@@ -27,7 +27,7 @@ class Square(Rectangle):
             raise TypeError('width must be an integer')
         if value < 0:
             raise ValueError('width must be >= 0')
-        self.__size = value
+        # self.__size = value
         self.width = value
         self.height = value
 
@@ -45,5 +45,5 @@ class Square(Rectangle):
     def to_dictionary(self):
         """To dictionary method"""
         attributes = ["id", "size", "x", "y"]
-        values = [self.id, self.size, self.x, self.y]
+        values = [self.id, self.width, self.x, self.y]
         return dict(zip(attributes, values))
