@@ -55,11 +55,11 @@ class Base:
     def load_from_file(cls):
         """Load from a file"""
         try:
-            with open(cls.__name__ + ".json", mode="r", encoding="utf-8") as mfile:
-                if mfile is None:
+            with open(cls.__name__ + ".json", mode="r", encoding="utf-8") as f:
+                if f is None:
                     return []
                 else:
-                    tmp = Base.from_json_string(mfile.read())
+                    tmp = Base.from_json_string(f.read())
                     result = []
                     for i in tmp:
                         result.append(cls.create(**i))
