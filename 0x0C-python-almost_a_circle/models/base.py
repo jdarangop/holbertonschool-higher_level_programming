@@ -54,14 +54,15 @@ class Base:
     @classmethod
     def load_from_file(cls):
         """Load from a file"""
-        with open(cls.__name__ + ".json", mode="r", encoding="utf-8") as myfile:
-            if myfile is None:
-                return []
-            else:
-                tmp = Base.from_json_string(myfile.read())
-                if tmp == []:
+        try:
+            with open(cls.__name__ + ".json", mode="r", encoding="utf-8") as mfile:
+                if mfile is None:
                     return []
-                result = []
-                for i in tmp:
-                    result.append(cls.create(**i))
-                return result
+                else:
+                    tmp = Base.from_json_string(mfile.read())
+                    result = []
+                    for i in tmp:
+                        result.append(cls.create(**i))
+                    return result
+        except:
+            return []
