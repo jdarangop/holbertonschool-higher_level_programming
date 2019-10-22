@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Module Base"""
-import json
+import json, csv
 
 
 class Base:
@@ -66,3 +66,34 @@ class Base:
                     return result
         except:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Save csv file"""
+        if cls.__name__ == "Rectangle":
+            with open(cls.__name__ + ".csv", "w", encoding="utf-8") as f:
+                writer = csv.DictWriter(f, fieldnames=['id', 'width', 'height', 'x', 'y'])
+                for i in list_objs:
+                    tmp = i.to_dictionary()
+                    writer.writerow(tmp)
+        elif cls.__name__ == "Square":
+            with open(cls.__name__ + ".csv", "w", encoding="utf-8") as f:
+                writer = csv.DictWriter(f, fieldnames=['id', 'size', 'x', 'y'])
+                for i in list_objs:
+                    tmp = i.to_dictionary()
+                    writer.writerow(tmp)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Load csv file"""
+        with open(cls.__name__ + ".csv", "r", encoding="utf-8") as f:
+            reader = csv.DictReader(f, fieldnames=['id', 'width', 'height', 'x', 'y'])
+            result = []
+            for i in reader:
+                for j, k in i.items():
+                    if k is not None:
+                        i[j] = int(k)
+                    else:
+                        i[j] = 0
+                result.append(cls.create(**i))
+            return result
