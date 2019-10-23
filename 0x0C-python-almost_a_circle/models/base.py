@@ -19,7 +19,7 @@ class Base:
     def to_json_string(list_dictionaries):
         """Pass list to JSON string"""
         if list_dictionaries is None:
-            return json.dumps([])
+            return "[]"
         else:
             return json.dumps(list_dictionaries)
 
