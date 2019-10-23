@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module Base"""
-import json, csv
+import json
+import csv
 
 
 class Base:
@@ -19,7 +20,7 @@ class Base:
     def to_json_string(list_dictionaries):
         """Pass list to JSON string"""
         if list_dictionaries is None:
-            return "[]"
+            return json.dumps([])
         else:
             return json.dumps(list_dictionaries)
 
@@ -37,7 +38,7 @@ class Base:
     def from_json_string(json_string):
         """From json string"""
         if json_string is None or json_string == "":
-            return json.loads([])
+            return []
         else:
             return json.loads(json_string)
 
@@ -72,7 +73,9 @@ class Base:
         """Save csv file"""
         if cls.__name__ == "Rectangle":
             with open(cls.__name__ + ".csv", "w", encoding="utf-8") as f:
-                writer = csv.DictWriter(f, fieldnames=['id', 'width', 'height', 'x', 'y'])
+                writer = csv.DictWriter(f,
+                                        fieldnames=['id', 'width',
+                                                    'height', 'x', 'y'])
                 for i in list_objs:
                     tmp = i.to_dictionary()
                     writer.writerow(tmp)
@@ -87,7 +90,9 @@ class Base:
     def load_from_file_csv(cls):
         """Load csv file"""
         with open(cls.__name__ + ".csv", "r", encoding="utf-8") as f:
-            reader = csv.DictReader(f, fieldnames=['id', 'width', 'height', 'x', 'y'])
+            reader = csv.DictReader(f,
+                                    fieldnames=['id', 'width',
+                                                'height', 'x', 'y'])
             result = []
             for i in reader:
                 for j, k in i.items():
