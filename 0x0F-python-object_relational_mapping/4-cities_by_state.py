@@ -7,8 +7,13 @@ if __name__ == '__main__':
     username = argv[1]
     password = argv[2]
     db_name = argv[3]
-    db = MySQLdb.connect(host="127.0.0.1", port=3306,  user=username, passwd=password, db=db_name)
+    db = MySQLdb.connect(host="127.0.0.1", port=3306,
+                         user=username, passwd=password, db=db_name)
     cur = db.cursor()
-    cur.execute("SELECT * FROM cities JOIN states ON states.id = cities.state_id ORDER BY cities.id")
+    cur.execute("SELECT cities.id, cities.name, \
+                 states.name FROM cities JOIN states ON \
+                 states.id = cities.state_id ORDER BY cities.id")
     for i in cur.fetchall():
         print (i)
+    cur.close()
+    db.close()
