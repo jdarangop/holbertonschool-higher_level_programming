@@ -3,6 +3,7 @@
 import MySQLdb
 from sys import argv
 
+
 if __name__ == '__main__':
     username = argv[1]
     password = argv[2]
