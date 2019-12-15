@@ -14,6 +14,6 @@ if __name__ == '__main__':
     cur.execute("SELECT * FROM states WHERE name \
                  LIKE '{}' ORDER BY states.id".format(name_state))
     for i in cur.fetchall():
-        print (i)
+        print(i)
     cur.close()
     db.close()
