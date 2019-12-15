@@ -12,7 +12,7 @@ if __name__ == '__main__':
                          user=username, passwd=password, db=db_name)
     cur = db.cursor()
     cur.execute("SELECT * FROM states WHERE name \
-                 LIKE '{}' ORDER BY states.id".format(name_state))
+                 LIKE BINARY '{}' ORDER BY states.id".format(name_state))
     for i in cur.fetchall():
         print(i)
     cur.close()
