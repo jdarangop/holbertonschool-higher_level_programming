@@ -10,6 +10,9 @@ if __name__ == "__main__":
                            argv[1], argv[2], argv[3]))
     Session = sessionmaker(bind=engine)
     session = Session()
-    state = session.query(State).order_by(State.id).all()[0]
-    print("{}: {}".format(state.id, state.name))
+    state = session.query(State).order_by(State.id).all()
+    if state == []:
+        print()
+    else:
+        print("{}: {}".format(state[0].id, state[0].name))
     session.close()
