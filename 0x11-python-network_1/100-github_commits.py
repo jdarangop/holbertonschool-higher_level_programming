@@ -12,6 +12,7 @@ if __name__ == "__main__":
                           format(owner, repo))
 
     dict_json = result.json()
-    for i in dict_json:
+    for j in range(10):
+        i = dict_json[j]
         print("{}: {}".format(i.get('sha'), i.get('commit').
               get('author').get('name')))
