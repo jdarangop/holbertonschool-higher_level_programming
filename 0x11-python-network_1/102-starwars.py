@@ -24,7 +24,7 @@ if __name__ == "__main__":
         print(i.get('name'))
         for j in i.get('films'):
             print_films(j)
-    if dict_data.get("next") is not None:
+    while dict_data.get("next") is not None:
         result = requests.get(dict_data.get("next"), params=value)
         dict_data = result.json()
         for i in dict_data.get("results"):
