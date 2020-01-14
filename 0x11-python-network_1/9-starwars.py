@@ -12,6 +12,6 @@ if __name__ == "__main__":
                           params=value)
 
     dict_data = result.json()
-    print("Number of results: {}".format(dict_data["count"]))
-    for i in dict_data["results"]:
-        print(i["name"])
+    print("Number of results: {}".format(dict_data.get("count")))
+    for i in dict_data.get("results"):
+        print(i.get('name'))
