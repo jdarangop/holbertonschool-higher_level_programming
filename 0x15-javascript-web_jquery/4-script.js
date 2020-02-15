@@ -1,11 +1,11 @@
 $("#toggle_header").click(function switchColor () {
-    if ($("#toggle_header").hasClass("red")) {
-        $("#toggle_header").removeClass("red");
-        $("#toggle_header").addClass("green");
-    } else if ($("#toggle_header").hasClass("green")) {
-        $("#toggle_header").removeClass("green");
-        $("#toggle_header").addClass("red");
+    if ($("header").hasClass("red")) {
+        $("header").removeClass("red");
+        $("header").addClass("green");
+    } else if ($("header").hasClass("green")) {
+        $("header").removeClass("green");
+        $("header").addClass("red");
     } else {
-        $("#toggle_header").addClass("green");
+        $("header").addClass("green");
     }
 });
