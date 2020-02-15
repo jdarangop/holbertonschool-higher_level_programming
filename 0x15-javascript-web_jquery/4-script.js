@@ -1,4 +1,4 @@
-function switchColor () {
+$("#toggle_header").click(function switchColor () {
     if ($("#toggle_header").hasClass("red")) {
         $("#toggle_header").removeClass("red");
         $("#toggle_header").addClass("green");
@@ -8,4 +8,4 @@ function switchColor () {
     } else {
         $("#toggle_header").addClass("green");
     }
-}
+});
